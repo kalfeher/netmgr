@@ -1,0 +1,36 @@
+---
+  # Update network settings for a host. should be idempotent
+  #
+  - name: Create backup dir for ifcfg scripts to avoid accidental execution
+    file:
+      path: /home/ansible/backup
+      state: directory
+
+  - name: Move ifcfg script
+    include_role:
+      name: mv
+      #private: True
+    vars:
+      source: "{{ ifcfgDir }}/ifcfg-{{ interface }}"
+      destination: "/home/ansible/backup/ifcfg-{{ interface }}"
+
+  - name: Update NetworkManager to use keyfile plugin
+    ini_file:
+      path: /etc/NetworkManager/NetworkManager.conf
+      section: main
+      option: plugins
+      value: keyfile
+      backup: yes
+      create: no
+    notify:
+      - restart NetworkManager
+      - wait for new network settings
+  - name: Apply Static interface config
+    template:
+      src: "{{ ConfType }}.j2"
+      dest: "{{ NewConfigDir }}/ansible_generated-{{ ConfType }}.conf"
+      mode: 0600
+    notify:
+      - restart NetworkManager
+      - reload network interface
+      - wait for new network settings
