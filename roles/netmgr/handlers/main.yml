@@ -1,12 +1,12 @@
 ---
   # restart NetworkManmager
-  # role adapted from here: https://serverfault.com/questions/666579/recommended-way-to-configure-a-centos-7-network-interface-with-static-settings-v
+  #
   - name: reload network interface
-    #shell: nmcli con reload
-    # Trying a more specific load call
-    shell: "nmcli con load {{ NewConfigDir }}/ansible_generated.conf" 
+    shell: "nmcli con load {{ NewConfigDir }}/ansible_generated.conf"
   - name: restart NetworkManager
-    service: name=NetworkManager state=restarted
+    service:
+      name: NetworkManager
+      state: restarted
   - name: wait for new network settings
     become: no
     local_action:
