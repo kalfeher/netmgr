@@ -1,0 +1,8 @@
+---
+  # update network manager
+
+  - name: Update NetworkManager configuration
+    hosts: centos
+    become: yes
+    roles:
+      - network_mgr
