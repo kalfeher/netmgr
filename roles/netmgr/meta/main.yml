@@ -8,4 +8,4 @@
   #  galaxy_tags: []
 
   dependencies:
-    role: mv
+    - role: mv
