@@ -7,5 +7,5 @@
     license: GPL 3.0
   #  galaxy_tags: []
 
-  dependancies:
+  dependencies:
     role: mv
