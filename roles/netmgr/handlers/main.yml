@@ -7,6 +7,8 @@
     service:
       name: NetworkManager
       state: restarted
+  - name: bring interface up
+    shell: "nmcli con up {{ interface }}"
   - name: wait for new network settings
     become: no
     local_action:
