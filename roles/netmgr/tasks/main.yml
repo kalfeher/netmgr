@@ -25,6 +25,8 @@
     notify:
       - restart NetworkManager
       - wait for new network settings
+  - debug:
+    msg: "{{ ID }}"
   - name: Apply interface config
     template:
       src: "{{ ConfType }}.j2"
