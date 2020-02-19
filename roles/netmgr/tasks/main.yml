@@ -29,7 +29,7 @@
   - name: Apply interface config
     template:
       src: "{{ ConfType }}.j2"
-      dest: "{{ NewConfigDir }}/ansible_generated-{{ ConfType }}.conf"
+      dest: "{{ NewConfigDir }}/ansible_generated-{{ ID }}.conf"
       mode: 0600
     notify:
       - restart NetworkManager

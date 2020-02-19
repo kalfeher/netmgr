@@ -2,7 +2,7 @@
   # restart NetworkManmager
   #
   - name: reload network interface
-    shell: "nmcli con load {{ NewConfigDir }}/ansible_generated-{{ ConfType }}.conf"
+    shell: "nmcli con load {{ NewConfigDir }}/ansible_generated-{{ ID }}.conf"
   - name: restart NetworkManager
     service:
       name: NetworkManager
