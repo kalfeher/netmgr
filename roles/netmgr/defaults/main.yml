@@ -4,4 +4,5 @@
   ifcfgDir: /etc/sysconfig/network-scripts
   NewConfigDir: /etc/NetworkManager/system-connections
   ConfType: static6 # also try static4 and dhcp4
-  ID: "{{ inventory_hostname }}"
+  #ID: "{{ inventory_hostname }}"
+  ID: "{{ interface }}-{{ ConfType }}"
