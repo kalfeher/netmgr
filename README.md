@@ -6,8 +6,8 @@
  This role works best with 'Predictable Network Interface Names'.
 
 ## Templates and Defaults:
-Update the templates with configurations that are meaningful for your environment. The interface 'ID' value is currently just the type of configuration used.
-Default interface names should be updated based on your physical or virtual network interface device types. Currently they are taken from some virtualbox VM interfaces.
+Update the templates with configurations that are meaningful for your environment. The interface 'ID' value is currently the interface name and type of configuration used.
+Default interface names should be updated based on your physical or virtual network interface device types.
 
 ## Example:
  _To change the address of the interface that Ansible uses to connect to the host, use the command below. Note that a restart may still be required._
