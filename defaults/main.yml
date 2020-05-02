@@ -1,5 +1,5 @@
 ---
-  interface: enp0s8 #will vary depending on architecture.
+  #interface: ens18 #will vary depending on architecture.
   newaddress: fd01:1:1:1::100/64
   ifcfgDir: /etc/sysconfig/network-scripts
   NewConfigDir: /etc/NetworkManager/system-connections

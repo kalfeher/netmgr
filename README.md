@@ -5,6 +5,10 @@
 
  This role works best with 'Predictable Network Interface Names'.
 
+## Required Variables:
+`interface`: The device name of the interface. Will set the device within the NetworkManager configuration file.
+- If predictable names are not used, this value may become incorrect if additional interfaces are added to the system. As a result, the NetworkManager configuration will become invalid and fail to load.
+
 ## Templates and Defaults:
 Update the templates with configurations that are meaningful for your environment. The interface 'ID' value is currently the interface name and type of configuration used.
 Default interface names should be updated based on your physical or virtual network interface device types.
