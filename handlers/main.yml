@@ -13,7 +13,8 @@
 
   - name: bring interface up
     shell: "nmcli con up {{ ID }}"
-  - name: Reset ssh connection 3
+
+  - name: Reset ssh connection
     meta: reset_connection
 
   - name: wait for new network settings

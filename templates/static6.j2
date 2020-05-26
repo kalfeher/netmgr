@@ -6,5 +6,7 @@ interface-name={{ interface }}
 [ipv6]
 method=manual
 address1={{ newaddress }}
+{% if ipv6_dns is defined %}
+dns={{ ipv6_dns|replace(',',';') }}
 [ipv4]
 method=disabled
