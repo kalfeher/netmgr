@@ -3,12 +3,20 @@
   #
   - name: reload network interface
     shell: "nmcli con load {{ NewConfigDir }}/ansible_generated-{{ ID }}.conf"
+
   - name: restart NetworkManager
     service:
       name: NetworkManager
       state: restarted
+    async: 20
+    poll: 0
+
   - name: bring interface up
     shell: "nmcli con up {{ ID }}"
+
+  - name: Reset ssh connection
+    meta: reset_connection
+
   - name: wait for new network settings
     become: no
     local_action:

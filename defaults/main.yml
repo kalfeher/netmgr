@@ -1,8 +1,9 @@
 ---
-  interface: enp0s8 #will vary depending on architecture.
+  #interface: ens18 #will vary depending on architecture.
   newaddress: fd01:1:1:1::100/64
   ifcfgDir: /etc/sysconfig/network-scripts
   NewConfigDir: /etc/NetworkManager/system-connections
   ConfType: static6 # also try static4 and dhcp4
-  #ID: "{{ inventory_hostname }}"
   ID: "{{ interface }}-{{ ConfType }}"
+  #ipv4_dns: "8.8.8.8;1.1.1.1;9.9.9.9;156.154.70.5"
+  #ipv6_dns: "2001:4860:4860::8888;2606:4700:4700::1111;2620:fe::fe;2610:a1:1018::5"

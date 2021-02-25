@@ -3,8 +3,10 @@
   #
   - name: Create backup dir for ifcfg scripts to avoid accidental execution
     file:
-      path: /home/ansible/backup
+      path: /home/{{ansible_user}}/backup
       state: directory
+    tags:
+      - prep
 
   - name: Move ifcfg script
     include_role:
@@ -12,7 +14,9 @@
       #private: True
     vars:
       source: "{{ ifcfgDir }}/ifcfg-{{ interface }}"
-      destination: "/home/ansible/backup/ifcfg-{{ interface }}"
+      destination: "/home/{{ansible_user}}/backup/ifcfg-{{ interface }}"
+    tags:
+      - netscripts
 
   - name: Update NetworkManager to use keyfile plugin
     ini_file:
@@ -25,6 +29,8 @@
     notify:
       - restart NetworkManager
       - wait for new network settings
+    tags:
+      - prep
 
   - name: Apply interface config
     template:
@@ -36,3 +42,5 @@
       - reload network interface
       - bring interface up
       - wait for new network settings
+    tags:
+      - configuration
