@@ -8,5 +8,6 @@ method=manual
 address1={{ newaddress }}
 {% if ipv6_dns is defined %}
 dns={{ ipv6_dns|replace(',',';') }}
+{% endif %}
 [ipv4]
 method=disabled

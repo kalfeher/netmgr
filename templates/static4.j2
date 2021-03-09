@@ -6,3 +6,9 @@ interface-name={{ interface }}
 [ipv4]
 method=manual
 address1={{ newaddress }}
+{% if ipv4_dns is defined %}
+dns={{ ipv4_dns }}
+{% endif %}
+{% if ipv4_gateway is defined %}
+gateway={{ ipv4_gateway }}
+{% endif %}
